@@ -1,0 +1,19 @@
+apiVersion: techcross.io/v1alpha1
+kind: ObjectStorage
+metadata:
+  name: &name meunovo-bucket-221022
+spec:
+  compositionSelector:
+    matchLabels:
+      techcross.io/provider: aws
+      techcross.io/environment: dev
+      s3.techcross.io/configuration: standard
+  resourceConfig:
+    name: *name
+    providerConfigName: provider-aws
+    region: us-east-1
+    tags:
+      - key: pipeline
+        value: tekton
+      - key: squad
+        value: iac
